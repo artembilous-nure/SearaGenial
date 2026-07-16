@@ -1,7 +1,9 @@
-import { ABOUT } from '../content';
+import { useI18n } from '../i18n/I18nContext';
 import Reveal from './Reveal';
 
 export default function About() {
+  const { t } = useI18n();
+
   return (
     <section id="sobre" className="relative overflow-hidden py-24 md:py-32">
       {/* Background accent */}
@@ -12,13 +14,13 @@ export default function About() {
           {/* Left: text */}
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/5 px-4 py-1.5 text-xs font-medium tracking-wide text-gold-200">
-              {ABOUT.badge}
+              {t.about.badge}
             </div>
             <h2 className="mt-6 font-display text-3xl font-semibold text-stone-50 sm:text-4xl md:text-5xl">
-              {ABOUT.title}
+              {t.about.title}
             </h2>
             <div className="mt-6 space-y-4">
-              {ABOUT.paragraphs.map((paragraph, i) => (
+              {t.about.paragraphs.map((paragraph, i) => (
                 <p key={i} className="text-base leading-relaxed text-stone-400 sm:text-lg">
                   {paragraph}
                 </p>
@@ -28,8 +30,10 @@ export default function About() {
 
           {/* Right: values */}
           <div className="flex flex-col gap-4">
-            {ABOUT.values.map((value, i) => (
-              <Reveal key={value.title} delay={i * 120}
+            {t.about.values.map((value, i) => (
+              <Reveal
+                key={value.title}
+                delay={i * 120}
                 className="group relative overflow-hidden rounded-2xl border border-white/5 bg-ink-800/40 p-7 transition-all duration-500 hover:border-gold-500/30"
               >
                 <div className="flex items-start gap-5">

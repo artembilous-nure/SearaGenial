@@ -1,9 +1,19 @@
-import { FOOTER, COMPANY, NAV_LINKS, CONTACT } from '../content';
+import { useI18n } from '../i18n/I18nContext';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 import Reveal from './Reveal';
 
-export default function Footer() {
+interface FooterProps {
+  onLegalNav?: () => void;
+}
+
+export default function Footer({ onLegalNav }: FooterProps) {
+  const { t } = useI18n();
   const scrollTo = useSmoothScroll();
+
+  const handleLegalClick = (key: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.hash = `/${key}`;
+  };
 
   return (
     <footer className="relative border-t border-white/5 bg-ink-950">
@@ -16,24 +26,27 @@ export default function Footer() {
                 <span className="font-display text-xl font-semibold text-gradient-gold">S</span>
               </span>
               <span className="font-display text-xl font-semibold tracking-wide text-stone-100">
-                {COMPANY.name}
+                {t.company.name}
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-500">
-              {COMPANY.tagline}. Estratégias de investimento com inteligência, rigor e visão.
+              {t.company.tagline}. {t.footer.tagline}
             </p>
           </Reveal>
 
           {/* Nav links */}
           <Reveal delay={120}>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400">
-              Navegação
+              {t.footer.navTitle}
             </h3>
             <ul className="mt-4 space-y-2.5">
-              {NAV_LINKS.map((link) => (
+              {t.nav.map((link) => (
                 <li key={link.href}>
                   <button
-                    onClick={() => scrollTo(link.href)}
+                    onClick={() => {
+                      if (onLegalNav) onLegalNav();
+                      scrollTo(link.href);
+                    }}
                     className="text-sm text-stone-500 transition-colors hover:text-gold-200"
                   >
                     {link.label}
@@ -46,15 +59,15 @@ export default function Footer() {
           {/* Contact + socials */}
           <Reveal delay={240}>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400">
-              Contacto
+              {t.footer.contactTitle}
             </h3>
             <ul className="mt-4 space-y-2.5">
-              <li className="text-sm text-stone-500">{COMPANY.email}</li>
-              <li className="text-sm text-stone-500">{COMPANY.phone}</li>
-              <li className="text-sm text-stone-500">{COMPANY.address}</li>
+              <li className="text-sm text-stone-500">{t.company.email}</li>
+              <li className="text-sm text-stone-500">{t.company.phone}</li>
+              <li className="text-sm text-stone-500">{t.company.address}</li>
             </ul>
             <div className="mt-5 flex gap-3">
-              {CONTACT.socials.map((social) => {
+              {t.contact.socials.map((social) => {
                 const Icon = social.icon;
                 return (
                   <a
@@ -77,12 +90,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <Reveal delay={360}>
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-stone-600">{FOOTER.copyright}</p>
+            <p className="text-xs text-stone-600">{t.footer.copyright}</p>
             <div className="flex gap-6">
-              {FOOTER.legal.map((item) => (
+              {t.footer.legal.map((item) => (
                 <a
-                  key={item.label}
-                  href={item.href}
+                  key={item.key}
+                  href={`#/${item.key}`}
+                  onClick={(e) => handleLegalClick(item.key, e)}
                   className="text-xs text-stone-600 transition-colors hover:text-gold-200"
                 >
                   {item.label}

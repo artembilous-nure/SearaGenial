@@ -1,8 +1,9 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import { HERO } from '../content';
+import { useI18n } from '../i18n/I18nContext';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 
 export default function Hero() {
+  const { t } = useI18n();
   const scrollTo = useSmoothScroll();
 
   return (
@@ -30,13 +31,13 @@ export default function Hero() {
         {/* Badge */}
         <div className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/5 px-4 py-1.5 text-xs font-medium tracking-wide text-gold-200">
           <span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-glow" />
-          {HERO.badge}
+          {t.hero.badge}
         </div>
 
         {/* Title */}
         <h1 className="animate-fade-up mt-8 font-display text-4xl font-semibold leading-[1.1] text-stone-50 sm:text-5xl md:text-6xl lg:text-7xl">
-          Investindo no futuro com{' '}
-          <span className="text-gradient-gold">Seara Genial</span>
+          {t.hero.title}{' '}
+          <span className="text-gradient-gold">{t.hero.titleAccent}</span>
         </h1>
 
         {/* Subtitle */}
@@ -44,7 +45,7 @@ export default function Hero() {
           className="animate-fade-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-stone-400 sm:text-lg md:text-xl"
           style={{ animationDelay: '0.15s', opacity: 0 }}
         >
-          {HERO.subtitle}
+          {t.hero.subtitle}
         </p>
 
         {/* CTAs */}
@@ -56,14 +57,14 @@ export default function Hero() {
             onClick={() => scrollTo('#contacto')}
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-400 to-gold-500 px-7 py-3.5 text-sm font-semibold text-ink-950 transition-all hover:shadow-lg hover:shadow-gold-500/30"
           >
-            {HERO.ctaPrimary}
+            {t.hero.ctaPrimary}
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </button>
           <button
             onClick={() => scrollTo('#servicos')}
             className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-stone-200 transition-all hover:border-gold-500/50 hover:text-gold-200"
           >
-            {HERO.ctaSecondary}
+            {t.hero.ctaSecondary}
           </button>
         </div>
 
@@ -72,7 +73,7 @@ export default function Hero() {
           className="animate-fade-up mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8"
           style={{ animationDelay: '0.45s', opacity: 0 }}
         >
-          {HERO.stats.map((stat) => (
+          {t.hero.stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="font-display text-3xl font-semibold text-gradient-gold sm:text-4xl">
                 {stat.value}

@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
+import { scrollTarget } from './scrollState';
 
 /**
  * Smooth scroll to a section by selector or href.
  * Uses a custom requestAnimationFrame easing for consistent
- * smooth behavior across all browsers.
+ * smooth behavior across all browsers. Syncs with the wheel
+ * scroll hook via the shared scrollTarget.
  */
 export function useSmoothScroll() {
   return useCallback((href: string) => {
@@ -19,7 +21,6 @@ export function useSmoothScroll() {
 
     let startTime: number | null = null;
 
-    // easeInOutCubic — premium feel: slow start, fast middle, gentle landing
     const ease = (t: number) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
@@ -29,13 +30,18 @@ export function useSmoothScroll() {
       const progress = Math.min(elapsed / duration, 1);
       const eased = ease(progress);
 
-      window.scrollTo(0, startTop + distance * eased);
+      const pos = startTop + distance * eased;
+      scrollTarget.current = pos;
+      window.scrollTo(0, pos);
 
       if (progress < 1) {
         requestAnimationFrame(step);
+      } else {
+        scrollTarget.animated = false;
       }
     };
 
+    scrollTarget.animated = true;
     requestAnimationFrame(step);
   }, []);
 }

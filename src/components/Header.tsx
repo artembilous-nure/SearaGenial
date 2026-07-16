@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { COMPANY, NAV_LINKS } from '../content';
+import { useI18n } from '../i18n/I18nContext';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Header() {
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrollTo = useSmoothScroll();
@@ -38,13 +40,13 @@ export default function Header() {
             <span className="font-display text-xl font-semibold text-gradient-gold">S</span>
           </span>
           <span className="font-display text-xl font-semibold tracking-wide text-stone-100">
-            {COMPANY.name}
+            {t.company.name}
           </span>
         </button>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
+          {t.nav.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
@@ -57,18 +59,22 @@ export default function Header() {
             onClick={() => handleNavClick('#contacto')}
             className="rounded-full border border-gold-500/50 px-5 py-2 text-sm font-medium text-gold-200 transition-all hover:bg-gold-500 hover:text-ink-950"
           >
-            Falar Connosco
+            {t.hero.ctaPrimary}
           </button>
+          <LanguageSwitcher />
         </nav>
 
         {/* Mobile toggle */}
-        <button
-          className="text-stone-200 md:hidden"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageSwitcher />
+          <button
+            className="text-stone-200"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -78,7 +84,7 @@ export default function Header() {
         }`}
       >
         <nav className="glass mx-4 mt-3 flex flex-col gap-1 rounded-2xl p-4">
-          {NAV_LINKS.map((link) => (
+          {t.nav.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
@@ -91,7 +97,7 @@ export default function Header() {
             onClick={() => handleNavClick('#contacto')}
             className="mt-2 rounded-lg bg-gold-500 px-4 py-3 text-center text-base font-semibold text-ink-950"
           >
-            Falar Connosco
+            {t.hero.ctaPrimary}
           </button>
         </nav>
       </div>
