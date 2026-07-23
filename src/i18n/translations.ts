@@ -122,9 +122,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       ctaPrimary: 'Fale Connosco',
       ctaSecondary: 'Conhecer Serviços',
       stats: [
-        { value: '+15 anos', label: 'Experiência no mercado' },
-        { value: '+€500M', label: 'Ativos sob gestão' },
-        { value: '+1.200', label: 'Clientes satisfeitos' },
+        { value: 'Visão Global', label: 'Análise Estratégica' },
+        { value: 'Gestão Ativa', label: 'Otimização Constante' },
+        { value: 'Foco no Cliente', label: 'Soluções Personalizadas' },
       ],
     },
     services: {
@@ -135,9 +135,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       items: [
         {
           icon: TrendingUp,
-          title: 'Investimento em Bolsa',
+          title: 'Participações Sociais',
           description:
-            'Carteiras diversificadas de ações e obrigações, geridas ativamente para maximizar retornos ajustados ao risco.',
+            'Aquisição e gestão de participações em sociedades, com foco na valorização de longo prazo e diversificação setorial estratégica.',
         },
         {
           icon: Building2,
@@ -307,9 +307,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       ctaPrimary: 'Talk to Us',
       ctaSecondary: 'Explore Services',
       stats: [
-        { value: '+15 years', label: 'Market experience' },
-        { value: '+€500M', label: 'Assets under management' },
-        { value: '+1,200', label: 'Satisfied clients' },
+        { value: 'Global Vision', label: 'Strategic Analysis' },
+        { value: 'Active Management', label: 'Continuous Optimization' },
+        { value: 'Client Focus', label: 'Personalized Solutions' },
       ],
     },
     services: {
@@ -320,9 +320,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       items: [
         {
           icon: TrendingUp,
-          title: 'Stock Market Investment',
+          title: 'Equity Participations',
           description:
-            'Diversified portfolios of stocks and bonds, actively managed to maximize risk-adjusted returns.',
+            'Acquisition and management of equity participations in companies, focused on long-term value appreciation and strategic sector diversification.',
         },
         {
           icon: Building2,
@@ -491,9 +491,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       ctaPrimary: 'Hable con Nosotros',
       ctaSecondary: 'Conocer Servicios',
       stats: [
-        { value: '+15 años', label: 'Experiencia en el mercado' },
-        { value: '+€500M', label: 'Activos bajo gestión' },
-        { value: '+1.200', label: 'Clientes satisfechos' },
+        { value: 'Visión Global', label: 'Análisis Estratégico' },
+        { value: 'Gestión Activa', label: 'Optimización Constante' },
+        { value: 'Foco en el Cliente', label: 'Soluciones Personalizadas' },
       ],
     },
     services: {
@@ -504,9 +504,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       items: [
         {
           icon: TrendingUp,
-          title: 'Inversión en Bolsa',
+          title: 'Participaciones Sociales',
           description:
-            'Carteras diversificadas de acciones y bonos, gestionadas activamente para maximizar retornos ajustados al riesgo.',
+            'Adquisición y gestión de participaciones en empresas, con foco en la valorización a largo plazo y diversificación sectorial estratégica.',
         },
         {
           icon: Building2,
@@ -675,9 +675,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       ctaPrimary: 'Parlez-nous',
       ctaSecondary: 'Découvrir les Services',
       stats: [
-        { value: '+15 ans', label: 'Expérience du marché' },
-        { value: '+€500M', label: 'Actifs sous gestion' },
-        { value: '+1 200', label: 'Clients satisfaits' },
+        { value: 'Vision Globale', label: 'Analyse Stratégique' },
+        { value: 'Gestion Active', label: 'Optimisation Continue' },
+        { value: 'Focus Client', label: 'Solutions Personnalisées' },
       ],
     },
     services: {
@@ -688,9 +688,9 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       items: [
         {
           icon: TrendingUp,
-          title: 'Investissement en Bourse',
+          title: 'Participations Sociales',
           description:
-            'Portefeuilles diversifiés d\'actions et d\'obligations, gérés activement pour maximiser les rendements ajustés au risque.',
+            'Acquisition et gestion de participations dans des sociétés, axées sur la valorisation à long terme et la diversification sectorielle stratégique.',
         },
         {
           icon: Building2,

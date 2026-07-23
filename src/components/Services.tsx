@@ -21,7 +21,7 @@ export default function Services() {
         </Reveal>
 
         {/* Cards grid */}
-        <div className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {t.services.items.map((service, i) => {
             const Icon = service.icon;
             return (

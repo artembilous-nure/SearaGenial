@@ -75,7 +75,7 @@ export default function Hero() {
         >
           {t.hero.stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-display text-3xl font-semibold text-gradient-gold sm:text-4xl">
+              <div className="font-display text-2xl font-semibold text-gradient-gold sm:text-3xl">
                 {stat.value}
               </div>
               <div className="mt-1 text-xs font-medium uppercase tracking-wider text-stone-500 sm:text-sm">
