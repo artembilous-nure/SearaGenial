@@ -1,6 +1,5 @@
 import { useI18n } from '../i18n/I18nContext';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
-import Reveal from './Reveal';
 
 interface FooterProps {
   onLegalNav?: () => void;
@@ -20,7 +19,7 @@ export default function Footer({ onLegalNav }: FooterProps) {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
-          <Reveal>
+          <div>
             <div className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-gold-500/40 bg-gold-500/10">
                 <span className="font-display text-xl font-semibold text-gradient-gold">S</span>
@@ -32,10 +31,10 @@ export default function Footer({ onLegalNav }: FooterProps) {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-500">
               {t.company.tagline}. {t.footer.tagline}
             </p>
-          </Reveal>
+          </div>
 
           {/* Nav links */}
-          <Reveal delay={120}>
+          <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400">
               {t.footer.navTitle}
             </h3>
@@ -54,10 +53,10 @@ export default function Footer({ onLegalNav }: FooterProps) {
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </div>
 
           {/* Contact + socials */}
-          <Reveal delay={240}>
+          <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400">
               {t.footer.contactTitle}
             </h3>
@@ -81,30 +80,28 @@ export default function Footer({ onLegalNav }: FooterProps) {
                 );
               })}
             </div>
-          </Reveal>
+          </div>
         </div>
 
         {/* Divider */}
         <div className="gold-divider my-10 h-px w-full" />
 
         {/* Bottom bar */}
-        <Reveal delay={360}>
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-stone-600">{t.footer.copyright}</p>
-            <div className="flex gap-6">
-              {t.footer.legal.map((item) => (
-                <a
-                  key={item.key}
-                  href={`#/${item.key}`}
-                  onClick={(e) => handleLegalClick(item.key, e)}
-                  className="text-xs text-stone-600 transition-colors hover:text-gold-200"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-xs text-stone-600">{t.footer.copyright}</p>
+          <div className="flex gap-6">
+            {t.footer.legal.map((item) => (
+              <a
+                key={item.key}
+                href={`#/${item.key}`}
+                onClick={(e) => handleLegalClick(item.key, e)}
+                className="text-xs text-stone-600 transition-colors hover:text-gold-200"
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
-        </Reveal>
+        </div>
       </div>
     </footer>
   );
