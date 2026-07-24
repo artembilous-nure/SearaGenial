@@ -46,7 +46,7 @@ export default function Header({ onNavHome }: HeaderProps) {
           onClick={() => handleNavClick('#inicio')}
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-gold-500/40 bg-gold-500/10 transition-colors group-hover:bg-gold-500/20">
-            <span className="font-display text-xl font-semibold text-gradient-gold">S</span>
+            <span className="font-display text-xl font-semibold text-gradient-gold">SG</span>
           </span>
           <span className="font-display text-xl font-semibold tracking-wide text-stone-100">
             {t.company.name}

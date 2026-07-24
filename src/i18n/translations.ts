@@ -85,7 +85,7 @@ const companyInfo = {
   name: 'Seara Genial',
   email: 'contacto@searagenial.pt',
   phone: '+351 210 000 000',
-  address: 'Avenida da Liberdade, 100 — 1250-145 Lisboa, Portugal',
+  address: 'Rua Sport Faro e Benfica, 5 — 8000-544 Faro, Portugal',
 };
 
 const socials = [
@@ -94,13 +94,15 @@ const socials = [
   { icon: Instagram, label: 'Instagram', href: '#' },
 ];
 
+const PUBLIC_BASE = import.meta.env.BASE_URL;
+
 export const GALLERY_IMAGES = [
-  'https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg',
-  'https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg',
-  'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
-  'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg',
-  'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg',
-  'https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg',
+  `${PUBLIC_BASE}images/gallery/p1.jpg`,
+  `${PUBLIC_BASE}images/gallery/p2.jpg`,
+  `${PUBLIC_BASE}images/gallery/p3.jpg`,
+  `${PUBLIC_BASE}images/gallery/p4.jpg`,
+  `${PUBLIC_BASE}images/gallery/p5.jpg`,
+  `${PUBLIC_BASE}images/gallery/p6.jpg`,
 ];
 
 export const TRANSLATIONS: Record<Lang, Translation> = {
@@ -151,7 +153,7 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       badge: 'Sobre Nós',
       title: 'A nossa missão',
       paragraphs: [
-        'Há mais de 15 anos, a Seara Genial ajuda indivíduos, famílias e instituições a proteger e a fazer crescer o seu património. A nossa abordagem assenta numa premissa simples: decisões de investimento devem ser tomadas com dados, não com emoção. Por isso, cada recomendação que apresentamos resulta de análise quantitativa rigorosa, pesquisa independente e uma compreensão profunda do perfil de cada cliente.',
+        'Seara Genial ajuda indivíduos, famílias e instituições a proteger e a fazer crescer o seu património. A nossa abordagem assenta numa premissa simples: decisões de investimento devem ser tomadas com dados, não com emoção. Por isso, cada recomendação que apresentamos resulta de análise quantitativa rigorosa, pesquisa independente e uma compreensão profunda do perfil de cada cliente.',
         'Não acreditamos em promessas de retorno garantido ou em modismos de mercado. Acreditamos em estratégias desenhadas para durar — que sobrevivem a ciclos económicos, resistem à volatilidade e se adaptam a um mundo em mudança constante. A transparência é o nosso padrão: o cliente sabe sempre onde está o seu capital, por que razão, e qual o plano para o futuro.',
         'Quando confia na Seara Genial, não entrega apenas o seu capital — estabelece uma parceria de longo prazo com uma equipa que mede o seu próprio sucesso pelo seu. Esse é o compromisso que nos define.',
       ],
@@ -336,7 +338,7 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       badge: 'About Us',
       title: 'Our mission',
       paragraphs: [
-        'For over 15 years, Seara Genial has helped individuals, families, and institutions protect and grow their wealth. Our approach rests on a simple premise: investment decisions should be made with data, not emotion. Every recommendation we present results from rigorous quantitative analysis, independent research, and a deep understanding of each client\'s profile.',
+        'Seara Genial helps individuals, families, and institutions protect and grow their wealth. Our approach rests on a simple premise: investment decisions should be made with data, not emotion. Every recommendation we present results from rigorous quantitative analysis, independent research, and a deep understanding of each client\'s profile.',
         'We do not believe in guaranteed return promises or market fads. We believe in strategies built to last — that survive economic cycles, withstand volatility, and adapt to a constantly changing world. Transparency is our standard: the client always knows where their capital is, why, and what the plan is for the future.',
         'When you trust Seara Genial, you are not just entrusting your capital — you are establishing a long-term partnership with a team that measures its own success by yours. That is the commitment that defines us.',
       ],
@@ -520,7 +522,7 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       badge: 'Sobre Nosotros',
       title: 'Nuestra misión',
       paragraphs: [
-        'Desde hace más de 15 años, Seara Genial ayuda a individuos, familias e instituciones a proteger y hacer crecer su patrimonio. Nuestro enfoque se basa en una premisa simple: las decisiones de inversión deben tomarse con datos, no con emoción. Cada recomendación que presentamos resulta de un análisis cuantitativo riguroso, investigación independiente y una comprensión profunda del perfil de cada cliente.',
+        'Seara Genial ayuda a individuos, familias e instituciones a proteger y hacer crecer su patrimonio. Nuestro enfoque se basa en una premisa simple: las decisiones de inversión deben tomarse con datos, no con emoción. Cada recomendación que presentamos resulta de un análisis cuantitativo riguroso, investigación independiente y una comprensión profunda del perfil de cada cliente.',
         'No creemos en promesas de retorno garantizado ni en modas del mercado. Creemos en estrategias diseñadas para perdurar — que sobreviven a ciclos económicos, resisten la volatilidad y se adaptan a un mundo en constante cambio. La transparencia es nuestro estándar: el cliente siempre sabe dónde está su capital, por qué razón, y cuál es el plan para el futuro.',
         'Cuando confía en Seara Genial, no solo entrega su capital — establece una asociación a largo plazo con un equipo que mide su propio éxito por el suyo. Ese es el compromiso que nos define.',
       ],
@@ -704,7 +706,7 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       badge: 'À propos',
       title: 'Notre mission',
       paragraphs: [
-        'Depuis plus de 15 ans, Seara Genial aide les particuliers, les familles et les institutions à protéger et à faire croître leur patrimoine. Notre approche repose sur une prémisse simple : les décisions d\'investissement doivent être prises avec des données, non avec des émotions. Chaque recommandation que nous présentons résulte d\'une analyse quantitative rigoureuse, d\'une recherche indépendante et d\'une compréhension approfondie du profil de chaque client.',
+        'Seara Genial aide les particuliers, les familles et les institutions à protéger et à faire croître leur patrimoine. Notre approche repose sur une prémisse simple : les décisions d\'investissement doivent être prises avec des données, non avec des émotions. Chaque recommandation que nous présentons résulte d\'une analyse quantitative rigoureuse, d\'une recherche indépendante et d\'une compréhension approfondie du profil de chaque client.',
         'Nous ne croyons pas aux promesses de rendement garanti ni aux modes du marché. Nous croyons en des stratégies conçues pour durer — qui survivent aux cycles économiques, résistent à la volatilité et s\'adaptent à un monde en constante évolution. La transparence est notre standard : le client sait toujours où se trouve son capital, pourquoi, et quel est le plan pour l\'avenir.',
         'Lorsque vous confiez votre capital à Seara Genial, vous ne faites pas qu\'entrouvrir votre capital — vous établissez un partenariat à long terme avec une équipe qui mesure son propre succès par le vôtre. C\'est l\'engagement qui nous définit.',
       ],
