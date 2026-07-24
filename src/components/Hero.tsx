@@ -27,7 +27,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 pb-10 text-center">
         {/* Badge */}
         <div className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/5 px-4 py-1.5 text-xs font-medium tracking-wide text-gold-200">
           <span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-glow" />
@@ -84,16 +84,15 @@ export default function Hero() {
             </div>
           ))}
         </div>
+        {/* Scroll indicator */}
+        <button
+          onClick={() => scrollTo('#servicos')}
+          className="mt-10 flex w-full justify-center text-stone-600 transition-colors hover:text-gold-300"
+          aria-label="Scroll down"
+        >
+          <ChevronDown size={28} className="animate-bounce" />
+        </button>
       </div>
-
-      {/* Scroll indicator */}
-      <button
-        onClick={() => scrollTo('#servicos')}
-        className="mt-10 flex justify-center text-stone-600 transition-colors hover:text-gold-300"
-        aria-label="Scroll down"
-      >
-        <ChevronDown size={28} className="animate-bounce" />
-      </button>
     </section>
   );
 }
