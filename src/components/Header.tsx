@@ -4,7 +4,11 @@ import { useI18n } from '../i18n/I18nContext';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 import LanguageSwitcher from './LanguageSwitcher';
 
-export default function Header() {
+interface HeaderProps {
+  onNavHome?: (target?: string) => void;
+}
+
+export default function Header({ onNavHome }: HeaderProps) {
   const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -19,6 +23,11 @@ export default function Header() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
+    // If on a legal page, go home first then scroll to target
+    if (onNavHome) {
+      onNavHome(href);
+      return;
+    }
     scrollTo(href);
   };
 

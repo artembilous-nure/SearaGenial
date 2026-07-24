@@ -1,8 +1,10 @@
 import { useI18n } from '../i18n/I18nContext';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 
+type LegalKey = 'privacy' | 'terms' | 'disclaimer';
+
 interface FooterProps {
-  onLegalNav?: () => void;
+  onLegalNav?: (page: LegalKey) => void;
 }
 
 export default function Footer({ onLegalNav }: FooterProps) {
@@ -11,7 +13,9 @@ export default function Footer({ onLegalNav }: FooterProps) {
 
   const handleLegalClick = (key: string, e: React.MouseEvent) => {
     e.preventDefault();
-    window.location.hash = `/${key}`;
+    const hash = `#/${key}`;
+    window.location.hash = hash;
+    if (onLegalNav) onLegalNav(key as LegalKey);
   };
 
   return (
@@ -42,10 +46,7 @@ export default function Footer({ onLegalNav }: FooterProps) {
               {t.nav.map((link) => (
                 <li key={link.href}>
                   <button
-                    onClick={() => {
-                      if (onLegalNav) onLegalNav();
-                      scrollTo(link.href);
-                    }}
+                    onClick={() => scrollTo(link.href)}
                     className="text-sm text-stone-500 transition-colors hover:text-gold-200"
                   >
                     {link.label}

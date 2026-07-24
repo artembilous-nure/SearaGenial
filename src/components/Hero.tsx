@@ -89,7 +89,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={() => scrollTo('#servicos')}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-stone-600 transition-colors hover:text-gold-300"
+        className="mt-10 flex justify-center text-stone-600 transition-colors hover:text-gold-300"
         aria-label="Scroll down"
       >
         <ChevronDown size={28} className="animate-bounce" />

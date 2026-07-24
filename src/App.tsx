@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { I18nProvider } from './i18n/I18nContext';
-import { useSmoothWheelScroll } from './hooks/useSmoothWheelScroll';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -13,10 +13,9 @@ import LegalPage from './components/LegalPage';
 type LegalKey = 'privacy' | 'terms' | 'disclaimer';
 
 function AppContent() {
-  useSmoothWheelScroll();
   const [legalPage, setLegalPage] = useState<LegalKey | null>(null);
+  const scrollTo = useSmoothScroll();
 
-  // Hash-based routing for legal pages: #/privacy, #/terms, #/disclaimer
   useEffect(() => {
     const checkHash = () => {
       const hash = window.location.hash;
@@ -31,24 +30,38 @@ function AppContent() {
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
-  const goHome = () => {
+  // Scroll to top whenever a legal page opens
+  useEffect(() => {
+    if (legalPage) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [legalPage]);
+
+  const goHome = (target?: string) => {
     window.location.hash = '';
     setLegalPage(null);
+    if (target) {
+      // Wait for the main page to render before scrolling
+      setTimeout(() => scrollTo(target), 50);
+    }
   };
 
   if (legalPage) {
     return (
       <div className="relative min-h-screen bg-ink-950">
-        <Header />
-        <LegalPage page={legalPage} onBack={goHome} />
-        <Footer onLegalNav={goHome} />
+        <Header onNavHome={(target) => goHome(target)} />
+        <LegalPage page={legalPage} onBack={() => goHome()} />
+        <Footer onLegalNav={(page) => {
+          const hash = page === 'privacy' ? '#/privacy' : page === 'terms' ? '#/terms' : '#/disclaimer';
+          window.location.hash = hash;
+        }} />
       </div>
     );
   }
 
   return (
     <div className="relative min-h-screen bg-ink-950">
-      <Header />
+      <Header onNavHome={(target) => goHome(target)} />
       <main>
         <Hero />
         <Services />
@@ -56,7 +69,10 @@ function AppContent() {
         <About />
         <Contact />
       </main>
-      <Footer onLegalNav={goHome} />
+      <Footer onLegalNav={(page) => {
+        const hash = page === 'privacy' ? '#/privacy' : page === 'terms' ? '#/terms' : '#/disclaimer';
+        window.location.hash = hash;
+      }} />
     </div>
   );
 }
