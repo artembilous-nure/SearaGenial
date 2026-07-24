@@ -26,7 +26,7 @@ export default function Footer({ onLegalNav }: FooterProps) {
           <div>
             <div className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-gold-500/40 bg-gold-500/10">
-                <span className="font-display text-xl font-semibold text-gradient-gold">S</span>
+                <span className="font-display text-xl font-semibold text-gradient-gold">SG</span>
               </span>
               <span className="font-display text-xl font-semibold tracking-wide text-stone-100">
                 {t.company.name}
